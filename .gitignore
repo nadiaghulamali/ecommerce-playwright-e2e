@@ -1,0 +1,16 @@
+Dependencies
+/node_modules
+/package-lock.json
+
+Build output
+/dist
+/build
+/.vscode
+
+OS specific files
+.DS_Store
+
+Temporary files from Playwright/Testing
+test-results/
+playwright-report/
+.cache
