@@ -17,8 +17,8 @@ export class LoginPage extends BasePage {
     private readonly errorMessage: Locator;
     private readonly fieldError: Locator;
 
-    constructor(page: Page, baseUrl?: string) {
-        super(page, baseUrl);
+   constructor(page: Page, baseURL?: string) {
+        super(page, baseURL);
 
         this.emailInput = page.locator('#id_sidebar_login_username');
         this.passwordInput = page.locator('#id_sidebar_login_password');

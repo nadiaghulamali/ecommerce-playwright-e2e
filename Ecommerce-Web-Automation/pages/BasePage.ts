@@ -7,7 +7,7 @@ import { Page, Locator } from '@playwright/test';
 export class BasePage {
 
     protected readonly page: Page;
-    // private readonly baseUrl: string | undefined;
+    protected readonly baseURL: string;
 
     public readonly welcomeButton: Locator;
     private readonly cookieAcceptButton: Locator;
@@ -24,11 +24,10 @@ export class BasePage {
      */
     // NOTE: We no longer provide a hardcoded default here.
     // We rely on Playwright to pass its configured baseURL, or we fail if it's missing.
-    constructor(page: Page, baseUrl?: string) {
+   constructor(page: Page, baseURL?: string) {
         this.page = page;
-
-        // Remove trailing slashes from the URL for clean path concatenation
-        // this.baseUrl = baseUrl!.replace(/\/+$/, '');
+        // Use provided baseURL or fallback
+        this.baseURL = baseURL || 'https://www.choithrams.com';
 
         // Initialize common locators using descriptive methods
         this.welcomeButton = page.getByText('Welcome', { exact: true });;
@@ -45,14 +44,9 @@ export class BasePage {
      * @param path The relative path to navigate to.
      */
     async navigateTo(path: string): Promise<void> {
-        // Ensure the path starts with a slash if it doesn't already
-        const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-
-        // Construct the full URL
-        const fullUrl = `${this.baseUrl}${normalizedPath}`;
-
-        // Wait until the DOM is loaded
-        await this.page.goto(fullUrl, { waitUntil: 'domcontentloaded' });
+      const url = path.startsWith('http') ? path : `${this.baseURL}${path}`;
+        console.log(`Navigating to: ${url}`);
+        await this.page.goto(url, { waitUntil: 'domcontentloaded' });
     }
 
     async acceptCookies(): Promise<void> {
