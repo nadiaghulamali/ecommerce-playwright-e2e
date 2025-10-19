@@ -1,7 +1,7 @@
-QA Assessment: E-commerce Automation & API Testing
+**QA : E-commerce Automation & API Automation**
 This project delivers the technical assessment, including web E2E automation (Playwright/TypeScript) and API validation (Postman).
 
-1. Project Structure
+**1. Project Structure**
 Folder
 
 Content
@@ -18,10 +18,10 @@ api-tests/
 
 Postman Collection for FakeStoreAPI Validation
 
-2. Setup & Installation
+**2. Setup & Installation**
 Prerequisite: Node.js (v16+)
 
-Clone the repository:
+**Clone the repository:**
 
 git clone (https://github.com/nadiaghulamali/ecommerce-playwright-e2e.git)
 
@@ -30,7 +30,7 @@ Install dependencies and browser drivers:
 npm install
 npx playwright install
 
-3. Execution Commands
+**3. Execution Commands**
 Command
 
 Action
@@ -49,6 +49,6 @@ Recommended: Launch the Playwright UI for debugging.
 
 API tests are run by importing the JSON file in api-tests/ into Postman.
 
-4. Final Deliverable
+**4. Final Deliverable**
  Demo Video :
 https://drive.google.com/drive/u/1/folders/1kERHAI7PPfGc0rQPgcrcm_0zBc7qpc3i
